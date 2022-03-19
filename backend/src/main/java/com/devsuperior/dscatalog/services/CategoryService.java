@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devsuperior.dscatalog.dto.CategoryDTO;
 import com.devsuperior.dscatalog.entities.Category;
 import com.devsuperior.dscatalog.repositories.CategoryRepository;
+import com.devsuperior.dscatalog.services.exceptions.EntityNotFoundException;
 
 @Service
 public class CategoryService {
@@ -29,7 +30,7 @@ public class CategoryService {
 	public CategoryDTO findById(Long id) {
 		Optional<Category> obj = repository.findById(id);
 		//optional é uma abordagem para evitar trabalhar com valores nulos
-		Category entity = obj.get(); //obtém objeto dentro do optional
+		Category entity = obj.orElseThrow(() -> new EntityNotFoundException("Entity not found")); //obtém objeto dentro do optional
 		return new CategoryDTO(entity);
 	}
 }

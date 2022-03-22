@@ -27,6 +27,7 @@ public class ProductService {
 	@Autowired
 	private ProductRepository repository;
 	
+	@Autowired
 	private CategoryRepository categoryRepository;
 
 	@Transactional(readOnly = true)
@@ -46,8 +47,7 @@ public class ProductService {
 	@Transactional
 	public ProductDTO insert(ProductDTO dto) {
 		Product entity = new Product();
-		//copyDtoToEntity(dto, entity);
-		//entity.setName(dto.getName());
+		copyDtoToEntity(dto, entity);
 		entity = repository.save(entity);
 		return new ProductDTO(entity);
 	}
@@ -57,8 +57,7 @@ public class ProductService {
 		
 		try {
 			Product entity = repository.getOne(id);
-			//copyDtoToEntity(dto, entity);
-			//entity.setName(dto.getName());
+			copyDtoToEntity(dto, entity);
 			entity = repository.save(entity);
 			return new ProductDTO(entity);
 			
@@ -80,7 +79,7 @@ public class ProductService {
 			throw new DatabaseException("Integrity violation");
 		}
 	}
-	/*
+	
 	private void copyDtoToEntity(ProductDTO dto, Product entity) {
 		
 		entity.setName(dto.getName());
@@ -91,9 +90,10 @@ public class ProductService {
 		
 		entity.getCategories().clear();	
 		
-		for (CategoryDTO catDto :dto.getCategories()) {
-			Category category = 
+		for (CategoryDTO catDto : dto.getCategories()) {
+			Category category = categoryRepository.getOne(catDto.getId());
+			entity.getCategories().add(category);
 		}
 	}
-	*/
+	
 }

@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,10 +25,12 @@ public class User implements Serializable{
 	private Long id;
 	private String firstName;
 	private String lastName;
+	
+	@Column(unique = true)
 	private String email;
 	private String password;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER) //User com os roles pendurados
 	@JoinTable(name = "tb_user_role",
 	joinColumns = @JoinColumn(name = "user_id"), //chave estrangeira onde eu estou
 	inverseJoinColumns = @JoinColumn(name = "role_id")) //chave estrangeira do outro lado

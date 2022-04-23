@@ -4,14 +4,21 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 import com.devsuperior.dscatalog.entities.User;
 
 public class UserDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	
+	@NotBlank(message = "Campo obrigatório") //The annotated element must not be null and must contain at least one non-whitespace character.
 	private String firstName;
 	private String lastName;
+	
+	@Email(message = "Favor entrar um email válido") //The string has to be a well-formed email address.
 	private String email;
 	
 	Set<RoleDTO> roles = new HashSet<>(); //transitar dados do usuario e permissões dele

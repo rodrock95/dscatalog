@@ -49,7 +49,6 @@ public class ProductResource {
 	public ResponseEntity<Page<ProductDTO>> findAll(Pageable pageable){
 		Page<ProductDTO> list = service.findAllPaged(pageable);
 		return ResponseEntity.ok().body(list);
-		
 	}
 	
 	//buscar uma categoria por um id
@@ -78,5 +77,4 @@ public class ProductResource {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-
 }

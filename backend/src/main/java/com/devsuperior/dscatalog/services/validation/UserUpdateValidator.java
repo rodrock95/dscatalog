@@ -35,8 +35,6 @@ public class UserUpdateValidator implements ConstraintValidator<UserUpdateValid,
 		var uriVars = (Map<String, String>) request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE);
 		long userId = Long.parseLong(uriVars.get("id"));
 		
-		
-		
 		List<FieldMessage> list = new ArrayList<>();
 		
 		// Coloque aqui seus testes de validação, acrescentando objetos FieldMessage à lista

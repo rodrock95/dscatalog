@@ -1,3 +1,5 @@
+//Aqui estou criando uma annotation
+
 package com.devsuperior.dscatalog.services.validation;
 
 import java.lang.annotation.ElementType;

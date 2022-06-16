@@ -20,4 +20,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	Page<Product> find(List<Category> categories, String name, Pageable pageable);
 	
 	//procurar por encodeUriComponent para encodar os espaços em branco
+	
+	//lidando com o problema das N+1 consultas
+	@Query("SELECT obj FROM Product obj JOIN FETCH obj.categories WHERE obj IN :products")
+	List<Product> findProductsWithCategories(List<Product> products);
 }

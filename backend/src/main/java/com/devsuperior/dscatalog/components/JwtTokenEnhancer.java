@@ -19,6 +19,8 @@ public class JwtTokenEnhancer implements TokenEnhancer {
 	@Autowired
 	private UserRepository userRepository;
 	
+	//teste para heroku
+	
 	//acrescentar objetos no token quando for criado
 	@Override
 	public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {

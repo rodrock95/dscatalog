@@ -29,6 +29,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 		@Override
 		public void configure(WebSecurity web) throws Exception {
 			web.ignoring().antMatchers("/actuator/**"); //biblioteca do Spring Cloud OAuth
+			web.ignoring().antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**", 
+					"/configuration/**", "/swagger-ui.html", "/webjars/**");
+			/*Acessar http://localhost:8080/swagger-ui.html*/
 		}
 
 		@Override

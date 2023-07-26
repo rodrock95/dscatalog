@@ -16,6 +16,8 @@ produtos são públicas. Os demais endpoints estão disponíveis apenas para usu
 - Spring Boot
 - JPA/Hibernate
 - Maven
+- JWT
+- JUnit 5
 - Postman
 - Docker
 - PostgreSQL

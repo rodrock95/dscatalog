@@ -1,4 +1,5 @@
 # dscatalog
+https://github.com/rodrock95/dscatalog/blob/master/LICENSE
 
 # Sobre o projeto
 O dscatalog é um sistema e-commerce de produtos e categorias sendo uma aplicação web REST que permite aos usuários explorar 

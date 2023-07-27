@@ -14,6 +14,7 @@ e comprar diversos produtos disponíveis em diferentes categorias. Nessa API, so
 Neste projeto, algumas tecnologias a nível backend foram utilizadas para compor o projeto, bem como a descrição da infraestrutura:
 
 - CRUD: Java, Spring Boot, Maven, H2, Postgresql, Postman, Spring Data JPA, dentre outras.
+  
 Aqui foi criado monorepositório Git, organização do projeto em camadas, criação das entidades, perfis de projeto, seeding da base de dados, criação web services REST, padrão DTO, CRUD completo da entidade produtos, tratamento de exceções, dados de auditoria e paginação de dados. O Postman foi utilizado para testar as requisições.
 
 - Testes automatizados: JUnit5, Mockito, MockBean, dentre outras.
